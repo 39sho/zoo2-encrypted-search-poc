@@ -98,16 +98,10 @@ EMVP は暗号文同士の乗算もブートストラップも要らず、サー
 ```bash
 # README.md の手順で .venv を作ったあと
 export LD_LIBRARY_PATH=$(dirname $(find /nix/store -path "*/lib/libstdc++.so.6" | head -1))
-.venv/bin/python main.py
-.venv/bin/python scale.py
+.venv/bin/python -m emvp_poc.search
 ```
 
-ファイル:
-
-- `emvp.py` — EMVP プロトコル（鍵生成・行列暗号化・クエリ暗号化・評価・復号）
-- `pir.py` — Paillier による単一サーバー PIR
-- `main.py` — BM25 + CountSketch + EMVP + PIR の end-to-end デモ
-- `scale.py` — 規模別ベンチマーク
+ファイル構成は README.md を参照。规模を上げた比較は [BENCHMARK.md](BENCHMARK.md) に別途まとめた。
 
 ## 次のステップ
 
